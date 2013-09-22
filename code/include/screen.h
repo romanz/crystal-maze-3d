@@ -10,8 +10,8 @@
 #ifndef __SCREEN_H
 #define __SCREEN_H
 
-#include <Pixel.h>
-#include <Defines.h>
+#include <pixel.h>
+#include <defines.h>
 
 //
 // Screen class is used for graphics handling
@@ -23,7 +23,7 @@ class TScreen
 public:
 
 	// Initializes graphics system
-	TScreen(int gd = 0, int gm = 0, const char *path = "", int pages = 1);
+	TScreen(int gd, int gm, char *path, int pages);
 	// gd    - GraphDriver
 	// gm    - GraphMode
 	// path  - Path to BGI
@@ -56,6 +56,6 @@ TPixel TScreen::Pixel(Real x, Real y)
 	return TPixel( x/100*(width-1), y/100*(height-1) );
 }
 
-extern TScreen Screen; // At least one screen has to be used
+extern TScreen g_Screen; // At least one screen has to be used
 
 #endif

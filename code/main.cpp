@@ -7,28 +7,30 @@
 //                                                          //
 // ======================================================== //
 
-#include <Menu.h>
-#include <Screen.h>
+#include <menu.h>
+#include <screen.h>
 
-#include <Stdlib.h>
-#include <Alloc.h>
-#include <ConIO.h>
+#include <stdlib.h>
+#include <alloc.h>
+#include <conio.h>
 
-#include <ASCII.h>
+#include <ascii.h>
 
 // Graphics screen class (Driver, Mode, BGI path, Pages #)
-TScreen Screen(VGA, VGAMED, "", 2); // Look for BGI in current directory
+TScreen g_Screen(VGA, VGAMED, NULL, 2); // Look for BGI in current directory
 
 // ============================== Main ==============================
 
+inline int coreleft() { return 0; }
+
 int main(void)
 {
-	Screen.Switch(); // Switch pages (active != visual)
+	g_Screen.Switch(); // Switch pages (active != visual)
 
-	Mouse.Page(Screen.Visual()); // Show mouse on visual page
+	Mouse.Page(g_Screen.Visual()); // Show mouse on visual page
 	Mouse.Show();
 
-	randomize(); // Initializes random number generator
+	srand(clock()); // Initializes random number generator
 
 	TSize before = coreleft();
 
@@ -38,7 +40,7 @@ int main(void)
 			outtextxy(0, 0,
 			 "Error: No mazes found. "
 			 "Please copy your .MAZ files to current directory.");
-			Screen.Switch(); // Switch pages to see the message
+			g_Screen.Switch(); // Switch pages to see the message
 
 			getch();
 			break;

@@ -10,9 +10,7 @@
 #ifndef __MOUSE_H
 #define __MOUSE_H
 
-#include <Pixel.h>
-
-#include <Dos.h>
+#include <pixel.h>
 
 //
 // Mouse button's state
@@ -54,8 +52,6 @@ public:
 	int Page();
 
 protected:
-
-	static REGS regs; // Registers for mouse interrupts
 
 	TState l, r; // Left and Right buttons' states
 	TPixel p;    // Mouse position

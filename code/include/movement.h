@@ -10,8 +10,8 @@
 #ifndef __MOVEMENT_H
 #define __MOVEMENT_H
 
-#include <Defines.h>
-#include <TArray.h>
+#include <defines.h>
+#include <tarray.h>
 
 //
 // Position and directions of the player in the maze

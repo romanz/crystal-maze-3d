@@ -10,9 +10,9 @@
 #ifndef __MAZE_H
 #define __MAZE_H
 
-#include <Shape.h>
-#include <Defines.h>
-#include <Matrix.h>
+#include <shape.h>
+#include <defines.h>
+#include <matrix.h>
 
 // The class derives from Polyhedron class
 class TMazeView : public TPolyhedron

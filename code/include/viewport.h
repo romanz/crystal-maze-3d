@@ -10,12 +10,12 @@
 #ifndef __VIEWPORT_H
 #define __VIEWPORT_H
 
-#include <Defines.h>
-#include <Matrix.h>
-#include <Vector.h>
-#include <Pixel.h>
+#include <defines.h>
+#include <matrix.h>
+#include <vector.h>
+#include <pixel.h>
 
-#include <Graphics.h>
+#include <graphics.h>
 
 // TViewport projects World coords to Screen coords
 // using perspective projection from (0,0,-d)

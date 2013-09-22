@@ -12,8 +12,9 @@
 
 #include <iostream.h>
 #include <string.h>
+#include <ctype.h>
 
-#include "Defines.h"
+#include "defines.h"
 
 // Class declaration
 
@@ -185,7 +186,8 @@ int TString::operator >= (const TString &s) const
 inline
 TString &TString::Upper()
 {
-	strupr(data);
+	for (char *p = data; *p; ++p)
+		*p = toupper(*p);
 	return *this;
 }
 
@@ -193,7 +195,8 @@ TString &TString::Upper()
 inline
 TString &TString::Lower()
 {
-	strlwr(data);
+	for (char *p = data; *p; ++p)
+		*p = tolower(*p);
 	return *this;
 }
 

@@ -7,10 +7,10 @@
 //                                                          //
 // ======================================================== //
 
-#include <Matrix.h>
-#include <Vector.h>
+#include <matrix.h>
+#include <vector.h>
 
-#include <Math.h>
+#include <math.h>
 
 TMatrix::TMatrix() // Nullifying the matrix
 {

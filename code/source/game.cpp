@@ -7,8 +7,8 @@
 //                                                          //
 // ======================================================== //
 
-#include <Game.h>
-#include <ConIO.h>
+#include <game.h>
+#include <conio.h>
 
 TMaze::TMaze(const char *DataFile, const char *t):
  TRectControl(
@@ -59,7 +59,7 @@ int TMaze::Update()
 				if (Step == Frames) // First step
 					Ship *= MoveShip(Move); // Move ship
 				else if (Step == 1) // Last step
-					Ship *= MoveShip(Move ^ 1); // Move it back
+					Ship *= MoveShip(static_cast<Direction>(Move ^ 1)); // Move it back
 
 				break;
 
@@ -120,7 +120,7 @@ void TMaze::Show() // Shows everything
 	Viewer.Sort();
 	Viewer.Show();
 
-	Screen.Set();
+	g_Screen.Set();
 
 	TRectangle(
 		TPixel(Viewport.ScreenLeft(), Viewport.ScreenTop()),

@@ -10,13 +10,13 @@
 #ifndef __SHAPE_H
 #define __SHAPE_H
 
-#include <Vector.h>
-#include <Matrix.h>
-#include <Viewport.h>
-#include <FStream.h>
+#include <vector.h>
+#include <matrix.h>
+#include <viewport.h>
+#include <fstream.h>
 
-#include <TArray.h>
-#include <TList.h>
+#include <tarray.h>
+#include <tlist.h>
 
 //
 // Vertex is world and screen coordinate class, combines surfaces

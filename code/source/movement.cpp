@@ -7,10 +7,10 @@
 //                                                          //
 // ======================================================== //
 
-#include <IOStream.h>
-#include <FStream.h>
+#include <iostream.h>
+#include <fstream.h>
 
-#include <Movement.h>
+#include <movement.h>
 
 Direction TDirection::Dir(Direction d) // switch version
 {

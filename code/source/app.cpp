@@ -7,15 +7,15 @@
 //                                                          //
 // ======================================================== //
 
-#include <App.h>
-#include <ASCII.h>
+#include <app.h>
+#include <ascii.h>
 
-#include <StrStrea.h>
-#include <IOManip.h>
+#include <strstrea.h>
+#include <iomanip.h>
 
-#include <ConIO.h>
+#include <conio.h>
 
-#include <Alloc.h>
+#include <alloc.h>
 
 const TSize NumberOfCrystals = 10; // to find
 
@@ -27,88 +27,88 @@ App::App(const char *MazeFile):
  maze   (MazeFile, "Game viewport"),
 
  panel(
-  Screen.Pixel(0,0), Screen.Pixel(100,100),
+  g_Screen.Pixel(0,0), g_Screen.Pixel(100,100),
   0, LIGHTGRAY, "Point any control to get instant help"
  ),
 
  control(
-  Screen.Pixel(72,30), Screen.Pixel(99,38),
+  g_Screen.Pixel(72,30), g_Screen.Pixel(99,38),
 	"Control Panel", -1, LIGHTGRAY, "Ship control panel"
   ),
 
  move(
-  Screen.Pixel(72,41), Screen.Pixel(99,46),
+  g_Screen.Pixel(72,41), g_Screen.Pixel(99,46),
   "Move direction", -1, LIGHTGRAY, "Move ship: forward or back"
  ),
 
  forward(
-  Screen.Pixel(72,47), Screen.Pixel(85,52),
+  g_Screen.Pixel(72,47), g_Screen.Pixel(85,52),
   "Forward", "Moves the ship forward (+)"
  ),
 
  back(
-  Screen.Pixel(86,47), Screen.Pixel(99,52),
+  g_Screen.Pixel(86,47), g_Screen.Pixel(99,52),
   "Back", "Moves the ship back (-)"
  ),
 
  turn(
-  Screen.Pixel(72,53), Screen.Pixel(99,58),
+  g_Screen.Pixel(72,53), g_Screen.Pixel(99,58),
   "Turn direction", -1, LIGHTGRAY, "Turn ship: left, right, up or down"
  ),
 
  left(
-  Screen.Pixel(72,59), Screen.Pixel(85,64),
+  g_Screen.Pixel(72,59), g_Screen.Pixel(85,64),
   "Left", "Turns the ship to the left (Left arrow)"
  ),
  right(
-  Screen.Pixel(86,59), Screen.Pixel(99,64),
+  g_Screen.Pixel(86,59), g_Screen.Pixel(99,64),
   "Right", "Turns the ship to the right (Right arrow)"
  ),
 
  up(
-  Screen.Pixel(72,65), Screen.Pixel(85,70),
+  g_Screen.Pixel(72,65), g_Screen.Pixel(85,70),
   "Up", "Turns the ship up (Up arrow)"
  ),
 
  down(
-  Screen.Pixel(86,65), Screen.Pixel(99,70),
+  g_Screen.Pixel(86,65), g_Screen.Pixel(99,70),
   "Down", "Turns the ship down (Down arrow)"
  ),
 
  info(
-  Screen.Pixel( 1,30), Screen.Pixel(28,38),
+  g_Screen.Pixel( 1,30), g_Screen.Pixel(28,38),
   "Information", -1, LIGHTGRAY, "Game information"
  ),
 
  pos(
-  Screen.Pixel( 1,44), Screen.Pixel(28,49),
+  g_Screen.Pixel( 1,44), g_Screen.Pixel(28,49),
   "", -1, LIGHTGREEN, "Current position of the ship (X,Y,Z)"
  ),
 
  dist(
-  Screen.Pixel( 1,50), Screen.Pixel(28,55),
+  g_Screen.Pixel( 1,50), g_Screen.Pixel(28,55),
   "", -1, LIGHTGREEN, "Distance from the crystal"
  ),
 
  found(
-  Screen.Pixel( 1,59), Screen.Pixel(28,64),
+  g_Screen.Pixel( 1,59), g_Screen.Pixel(28,64),
   "", -1, LIGHTBLUE, "Number of crystals left to find"
  ),
 
  timer(
-  Screen.Pixel( 1,65), Screen.Pixel(28,70),
+  g_Screen.Pixel( 1,65), g_Screen.Pixel(28,70),
   "", -1, LIGHTBLUE, "Time elapsed from the beginning"
  ),
 
- status(Screen.Pixel(0,95), Screen.Pixel(100,100), "", -1, LIGHTGRAY),
+ status(g_Screen.Pixel(0,95), g_Screen.Pixel(100,100), "", -1, LIGHTGRAY),
 
  caption(
-  Screen.Pixel( 1, 5), Screen.Pixel(99,25),
+  g_Screen.Pixel( 1, 5), g_Screen.Pixel(99,25),
   "Crystal Maze 3D 2000"
  ),
 
  done(
-  Screen.Pixel( 30, 75), Screen.Pixel(70,85),
+  g_Screen.Pixel( 30, 75), g_Screen.Pixel(70,85),
   "Return to menu", "Exits the maze and returns to the main menu (Escape)"
  ),
 
@@ -126,9 +126,9 @@ App::App(const char *MazeFile):
 	 << caption << status << done;
 	;
 /*
-	Screen.Switch(); // Switch pages (active != visual)
+	g_Screen.Switch(); // Switch pages (active != visual)
 
-	Mouse.Page(Screen.Visual());
+	Mouse.Page(g_Screen.Visual());
 	Mouse.Show();*/
 }
 
@@ -170,8 +170,8 @@ TSize App::Run()
 
 			Mouse.Hide(); // Hide mouse
 
-			Screen.Switch(Delay); // Switch pages
-			Mouse.Page(Screen.Visual()); // Switch mouse
+			g_Screen.Switch(Delay); // Switch pages
+			Mouse.Page(g_Screen.Visual()); // Switch mouse
 
 			Mouse.Show(); // Show mouse
 		}

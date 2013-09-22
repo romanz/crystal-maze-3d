@@ -10,12 +10,12 @@
 #ifndef __GAME_H
 #define __GAME_H
 
-#include <Controls.h>
-#include <Movement.h>
-#include <Screen.h>
-#include <Matrix.h>
-#include <Shape.h>
-#include <Maze.h>
+#include <controls.h>
+#include <movement.h>
+#include <screen.h>
+#include <matrix.h>
+#include <shape.h>
+#include <maze.h>
 
 // Maze class contains everything to enable the game
 class TMaze : public TRectControl

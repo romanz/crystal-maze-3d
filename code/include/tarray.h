@@ -10,7 +10,7 @@
 #ifndef __TARRAY_H
 #define __TARRAY_H
 
-#include "Defines.h"
+#include "defines.h"
 
 // -------------
 // An array of T
@@ -35,8 +35,8 @@ public:
 	TArray<T> &operator = (const TArray<T> &a); // Assignment operator
 
 	// Subscription operator
-	const T &operator [] (unsigned i) const;
-	T &operator [] (unsigned i);
+	const T &operator [] (TSize i) const;
+	T &operator [] (TSize i);
 
 	TSize Size() const { return size; } // Size of the array
 

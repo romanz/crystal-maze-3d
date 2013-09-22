@@ -10,8 +10,8 @@
 #ifndef __APP_H
 #define __APP_H
 
-#include <Game.h>
-#include <Time.h>
+#include <game.h>
+#include <time.h>
 
 // Application is one game in one maze
 class App
@@ -50,6 +50,8 @@ protected:
 	TStrButton done; // Exit button
 
 };
+
+enum { CLK_TCK = CLOCKS_PER_SEC };
 
 // Timer is used to measure specified time periods
 class Timer

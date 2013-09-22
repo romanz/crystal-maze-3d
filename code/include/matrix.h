@@ -10,7 +10,7 @@
 #ifndef __MATRIX_H
 #define __MATRIX_H
 
-#include <Defines.h>
+#include <defines.h>
 
 class TVector; // used for multiplication by matrix
 

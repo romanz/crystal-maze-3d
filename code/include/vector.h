@@ -10,9 +10,9 @@
 #ifndef __VECTOR_H
 #define __VECTOR_H
 
-#include <Defines.h>
+#include <defines.h>
 
-#include <Math.h>
+#include <math.h>
 
 class TMatrix; // used for multiplication by vector
 

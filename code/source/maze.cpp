@@ -7,8 +7,8 @@
 //                                                          //
 // ======================================================== //
 
-#include <Maze.h>
-#include <Movement.h>
+#include <maze.h>
+#include <movement.h>
 
 TVertex &TMazeView::Vertex(TSize i, TSize j, TSize k)
 {

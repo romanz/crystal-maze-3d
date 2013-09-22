@@ -10,9 +10,9 @@
 #ifndef __TLIST_H
 #define __TLIST_H
 
-#include <StdLib.h>
+#include <stdlib.h>
 
-#include <Defines.h>
+#include <defines.h>
 
 // Class defines
 
@@ -132,7 +132,7 @@ void TListPos<T>::operator = (const TListPos<T> &p)
 // pointers so they are the only non-valid positions
 template <class T>
 inline
-TListPos<T>::operator int()
+TListPos<T>::operator int() const
 {
 	return (node->prev != node) && (node->next != node);
 }

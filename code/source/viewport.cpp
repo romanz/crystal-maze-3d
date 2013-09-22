@@ -7,7 +7,7 @@
 //                                                          //
 // ======================================================== //
 
-#include <Viewport.h>
+#include <viewport.h>
 
 TViewport::TViewport(
  const TVector &wmin, const TVector &wmax, Real d,

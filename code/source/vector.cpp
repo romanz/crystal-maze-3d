@@ -7,8 +7,8 @@
 //                                                          //
 // ======================================================== //
 
-#include <Vector.h>
-#include <Matrix.h>
+#include <vector.h>
+#include <matrix.h>
 
 // Vector's constructor
 TVector::TVector(Real vx, Real vy, Real vz) : x(vx), y(vy), z(vz)

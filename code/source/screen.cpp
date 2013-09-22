@@ -7,15 +7,14 @@
 //                                                          //
 // ======================================================== //
 
-#include <Screen.h>
-#include <Defines.h>
-#include <Mouse.h>
+#include <screen.h>
+#include <defines.h>
+#include <mouse.h>
 
-#include <IOStream.h>
-#include <Graphics.h>
-#include <Dos.h>
+#include <iostream.h>
+#include <graphics.h>
 
-TScreen::TScreen(int gd, int gm, const char *path, int pages):
+TScreen::TScreen(int gd, int gm, char *path, int pages):
 
  number(pages), active(0), visual(0), width(0), height(0)
 

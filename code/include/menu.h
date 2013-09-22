@@ -10,12 +10,12 @@
 #ifndef __MENU_H
 #define __MENU_H
 
-#include <TList.h>
-#include <TArray.h>
-#include <TString.h>
-#include <Controls.h>
+#include <tlist.h>
+#include <tarray.h>
+#include <tstring.h>
+#include <controls.h>
 
-#include <Game.h>
+#include <game.h>
 
 class THiscore
 {

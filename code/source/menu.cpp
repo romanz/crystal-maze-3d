@@ -7,21 +7,21 @@
 //                                                          //
 // ======================================================== //
 
-#include <App.h>
-#include <Menu.h>
-#include <ASCII.h>
+#include <app.h>
+#include <menu.h>
+#include <ascii.h>
 
-#include <Dir.h>
-#include <Dos.h>
+#include <dir.h>
+#include <dos.h>
 
-#include <Alloc.h>
-#include <Conio.h>
-#include <CType.h>
-#include <FStream.h>
-#include <StrStrea.h>
+#include <alloc.h>
+#include <conio.h>
+#include <ctype.h>
+#include <fstream.h>
+#include <strstrea.h>
 
-#include <Screen.h>
-#include <Viewport.h>
+#include <screen.h>
+#include <viewport.h>
 
 // Maze viewport
 TViewport Viewport(
@@ -30,14 +30,15 @@ TViewport Viewport(
  TVector(-0.4, -0.3), TVector( 0.4,  0.3), 1.0,
 
  // Screen Min(x,y), Max(x,y)
- TPixel(  0.3 * Screen.Width(), 0.3 * Screen.Height() ),
- TPixel(  0.7 * Screen.Width(), 0.7 * Screen.Height() )
+ TPixel(  0.3 * g_Screen.Width(), 0.3 * g_Screen.Height() ),
+ TPixel(  0.7 * g_Screen.Width(), 0.7 * g_Screen.Height() )
 
 );
 
 THiscoreListPos THiscoreList::Place(const THiscore &h)
 {
-	for (THiscoreListPos p(*this); ++p && h > p.Current(); );
+	THiscoreListPos p(*this);
+	for (; ++p && h > p.Current(); );
 	return p;
 }
 
@@ -104,55 +105,55 @@ TSize TMenu::ReadMazes()
 TMenu::TMenu():
 
  panel(
-  Screen.Pixel(0,0), Screen.Pixel(100,100),
+  g_Screen.Pixel(0,0), g_Screen.Pixel(100,100),
   0, LIGHTGRAY, "Point any control to get instant help"
  ),
 
  caption(
-  Screen.Pixel( 1, 5), Screen.Pixel(99,25),
+  g_Screen.Pixel( 1, 5), g_Screen.Pixel(99,25),
   "Crystal Maze 3D 2000"
  ),
 
  maze_panel(
-  Screen.Pixel(2,31), Screen.Pixel(48,70),
+  g_Screen.Pixel(2,31), g_Screen.Pixel(48,70),
   -1, LIGHTGRAY, "Maze selection"
  ),
 
  next(
-  Screen.Pixel(26,50), Screen.Pixel(45,55),
+  g_Screen.Pixel(26,50), g_Screen.Pixel(45,55),
   "Next", "Switch to next maze"
  ),
 
  prev(
-  Screen.Pixel( 5,50), Screen.Pixel(24,55),
+  g_Screen.Pixel( 5,50), g_Screen.Pixel(24,55),
   "Previous", "Switch to previous maze"
  ),
 
  maze_name(
-  Screen.Pixel( 5,35), Screen.Pixel(45,45),
+  g_Screen.Pixel( 5,35), g_Screen.Pixel(45,45),
   "", -1, LIGHTGREEN, "Maze file name"
  ),
 
  position(
-  Screen.Pixel( 5,57), Screen.Pixel(45,62),
+  g_Screen.Pixel( 5,57), g_Screen.Pixel(45,62),
   "", -1, LIGHTBLUE, "Current maze number out of total"
  ),
 
  load(
-  Screen.Pixel( 5,75), Screen.Pixel(45,85),
+  g_Screen.Pixel( 5,75), g_Screen.Pixel(45,85),
   "Play", "Plays current maze"
  ),
 
  done(
-  Screen.Pixel(55,75), Screen.Pixel(95,85),
+  g_Screen.Pixel(55,75), g_Screen.Pixel(95,85),
   "Exit", "Exits the program"
  ),
 
- status(Screen.Pixel(0,95), Screen.Pixel(100,100), "", -1, LIGHTGRAY),
+ status(g_Screen.Pixel(0,95), g_Screen.Pixel(100,100), "", -1, LIGHTGRAY),
 
  hiscores(10), // Top 10 hiscores
 
- table(Screen.Pixel(52,31), Screen.Pixel(98,70), hiscores),
+ table(g_Screen.Pixel(52,31), g_Screen.Pixel(98,70), hiscores),
 
  index(0)
 {
@@ -207,8 +208,8 @@ int TMenu::Run()
 
 			Mouse.Hide(); // Hide mouse
 
-			Screen.Switch(Delay); // Switch pages
-			Mouse.Page(Screen.Visual()); // Switch mouse
+			g_Screen.Switch(Delay); // Switch pages
+			Mouse.Page(g_Screen.Visual()); // Switch mouse
 
 			Mouse.Show(); // Show mouse
 		}
@@ -296,27 +297,27 @@ void TMenu::UpdateHiscores()
 TInput::TInput():
 
  panel(
-  Screen.Pixel(25, 30), Screen.Pixel(75, 65),
+  g_Screen.Pixel(25, 30), g_Screen.Pixel(75, 65),
   1, LIGHTGRAY
  ),
 
  congratulations(
-  Screen.Pixel(26, 31), Screen.Pixel(74, 36),
+  g_Screen.Pixel(26, 31), g_Screen.Pixel(74, 36),
   "Congratulations - You\'ve set a record", -1, LIGHTBLUE
  ),
 
  prompt(
-  Screen.Pixel(31, 40), Screen.Pixel(69, 45),
+  g_Screen.Pixel(31, 40), g_Screen.Pixel(69, 45),
   "Please enter your name:", 0, LIGHTGRAY
  ),
 
  text(
-  Screen.Pixel(31, 46), Screen.Pixel(69, 51),
+  g_Screen.Pixel(31, 46), g_Screen.Pixel(69, 51),
   "", -1, WHITE
  ),
 
  done(
-  Screen.Pixel(40, 56), Screen.Pixel(60, 61),
+  g_Screen.Pixel(40, 56), g_Screen.Pixel(60, 61),
   "OK"
  )
 
@@ -372,8 +373,8 @@ TString TInput::Run()
 
 			Mouse.Hide(); // Hide mouse
 
-			Screen.Switch(Delay); // Switch pages
-			Mouse.Page(Screen.Visual()); // Switch mouse
+			g_Screen.Switch(Delay); // Switch pages
+			Mouse.Page(g_Screen.Visual()); // Switch mouse
 
 			Mouse.Show(); // Show mouse
 		}

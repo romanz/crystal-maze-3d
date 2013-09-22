@@ -7,7 +7,7 @@
 //                                                          //
 // ======================================================== //
 
-#include <Controls.h>
+#include <controls.h>
 
 TControl::~TControl()
 {

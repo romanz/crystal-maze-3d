@@ -7,7 +7,7 @@
 //                                                          //
 // ======================================================== //
 
-#include <Shape.h>
+#include <shape.h>
 
 // Creates a surface from list of points, fill and border colors
 TSurface::TSurface(const TList<TVertex *> &list, Byte f, Byte b) :
@@ -53,7 +53,8 @@ void TSurface::Show()
 
 	v2 = operator[](0);
 
-	for (TSize i = 0, n = 0; i < Size();)
+	TSize n = 0;
+	for (TSize i = 0; i < Size();)
 	{
 		v1 = v2;
 		v2 = operator[]( ++i%Size() );
@@ -179,7 +180,8 @@ void TViewer::Update()
 	TListPos<TPolyhedron *> p(*this);
 
 	// n - Total number of surfaces
-	for (TSize n = 0; ++p; n += p.Current()->Surfaces().Size() );
+	TSize n = 0;
+	for (; ++p; n += p.Current()->Surfaces().Size() );
 
 	surfaces.Resize(n); // Resize the array
 

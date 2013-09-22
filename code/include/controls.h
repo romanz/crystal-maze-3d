@@ -10,14 +10,14 @@
 #ifndef __CONTROLS_H
 #define __CONTROLS_H
 
-#include <TList.h>
-#include <Pixel.h>
-#include <Mouse.h>
+#include <tlist.h>
+#include <pixel.h>
+#include <mouse.h>
 
-#include <Screen.h>
+#include <screen.h>
 
-#include <Graphics.h>
-#include <String.h>
+#include <graphics.h>
+#include <string.h>
 
 // Base class of all controls
 class TControl
