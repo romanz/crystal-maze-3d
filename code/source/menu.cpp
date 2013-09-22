@@ -83,16 +83,20 @@ void TTable::Show()
 
 TSize TMenu::ReadMazes()
 {
-	ffblk f;
 	TList<TString> list;
+	dir_filelist d;
 
-	for (int done = findfirst("*.MAZ", &f, 0); !done; done = findnext(&f))
-		list << TString(f.ff_name);
-
-	TSize i = 0;
+	int res = dir_find(".", "*.MAZ", &d);
+	assert(res);
+	for (size_t i = 0; i < d.length; ++i)
+	{
+		const char *filename = d.entries[i]->d_name;
+		list << TString(filename);
+	}
 
 	mazes.Resize(list.Count());
 
+	size_t i = 0;
 	for (
 	 TListPos<TString> p(list);
 	 ++p;

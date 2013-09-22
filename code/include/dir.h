@@ -1,12 +1,14 @@
 #ifndef __DIR_H
 #define __DIR_H
 
-struct ffblk_t {
-    const char *ff_name;
-};
-typedef struct ffblk_t ffblk;
+#include <dirent.h>
 
-extern int findfirst(const char *pattern, ffblk *ff, int flag);
-extern int findnext(ffblk *ff);
+struct dir_filelist {
+    struct dirent **entries;
+    size_t length;
+};
+
+int dir_find(const char *dir, const char *pattern, struct dir_filelist *result);
+void dir_free(struct dir_filelist *result);
 
 #endif
