@@ -1,5 +1,6 @@
 import glob
-env = Environment(CCFLAGS=['-Iinclude'], LINKFLAGS=['-lX11', '-lm'])
-files = glob.glob('source/*.cpp') + ['main.cpp'] + ['xbgi/src/libXbgi.a']
-env.Program(target='game', source=files)
-# g++ -o game source/vector.o source/shape.o source/screen.o source/maze.o source/controls.o source/game.o source/menu.o source/movement.o source/mouse.o source/matrix.o source/app.o source/viewport.o main.o xbgi/src/libXbgi.a -lX11
+env = Environment(CCFLAGS=['-Iinclude'])
+env.Program('game', glob.glob('source/*.cpp') + ['main.cpp'],
+    LIBS=['Xbgi', 'X11'],
+    LIBPATH=['./xbgi/src'])
+
