@@ -1,6 +1,6 @@
 import glob
 env = Environment(CCFLAGS=['-Iinclude'])
-env.Program('game', glob.glob('source/*.cpp') + ['main.cpp'],
+env.Program('game.out', glob.glob('source/*.cpp') + ['main.cpp'],
     LIBS=['Xbgi', 'X11'],
     LIBPATH=['./xbgi/src'])
 

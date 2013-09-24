@@ -1,2 +1,5 @@
+/code/.sconsign.dblite
 *.o
 *.a
+*.sublime-*
+*.out
